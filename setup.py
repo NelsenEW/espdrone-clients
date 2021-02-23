@@ -132,7 +132,7 @@ setup(
                                           'pyqtgraph>=0.10',
                                           'PyYAML',
                                           'quamash==0.6.1',
-                                          'qtm>=2.0.2'
+                                          'qtm>=2.0.2',
                                           'PyQt5==5.13.2'],
 
 
