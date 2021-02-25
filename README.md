@@ -96,4 +96,4 @@ pip3 install -e .
 To launch the GUI application in the source folder type:
 ```python3 bin/cfclient```
 
-To launch the GUI after a systemwide installation, execute ```cfclient```.
+To launch the GUI after a systemwide installation, execute ```cfclient``` or ```python3 -m cfclient.gui```
