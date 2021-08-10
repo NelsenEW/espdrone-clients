@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <package>
-  <!-- Changed the name to cfclient to avoid '_', as, when installed,
+  <!-- Changed the name to edclient to avoid '_', as, when installed,
        python converts them to '-' which are not allowed in catkin pkgs.
        This prevents get_distribution from working, and retrieving version
        as specified in setup.py -->
-  <name>cfclient</name>
+  <name>edclient</name>
   <version>2014.04.9001</version>
   <description>Bitcraze Cazyflie nano quadcopter client</description>
 
-  <url type="website">https://github.com/bitcraze/crazyflie-clients-python</url>
+  <url type="website">https://github.com/bitcraze/espdrone-clients-python</url>
   <license>GPL</license>
 
   <author email="contact@bitcraze.se">Bitcraze team</author>

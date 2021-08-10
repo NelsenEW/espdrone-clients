@@ -35,12 +35,12 @@ print("Cfclient version {}".format(VERSION))
 
 os.chdir("..\\..\\win32install")
 
-with open("cfclient.nsi.tmpl", "r") as template_file:
+with open("edclient.nsi.tmpl", "r") as template_file:
     TEMPLATE = template_file.read()
 
 TMPL = jinja2.Template(TEMPLATE)
 
-with open("cfclient.nsi", "w") as out_file:
+with open("edclient.nsi", "w") as out_file:
     out_file.write(TMPL.render(files=INSTALL_FILES,
                                dirs=INSTALL_DIRS,
                                version=VERSION))

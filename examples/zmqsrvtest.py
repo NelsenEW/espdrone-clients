@@ -8,7 +8,7 @@
 #
 #  Copyright (C) 2015 Bitcraze AB
 #
-#  Crazyflie Nano Quadcopter Client
+#  Espdrone Nano Quadcopter Client
 #
 #  This program is free software; you can redistribute it and/or
 #  modify it under the terms of the GNU General Public License
@@ -28,7 +28,7 @@
 """
 ZMQ server test application. Use CTRL-C to end the application.
 
-NOTE! If connected to a Crazyflie this will power on the motors!
+NOTE! If connected to a Espdrone this will power on the motors!
 """
 
 from __future__ import print_function
@@ -164,7 +164,7 @@ if resp["status"] != 0:
 else:
     print("done!")
 
-print("Scanning for Crazyflies ...", end=' ')
+print("Scanning for Espdrones ...", end=' ')
 scan_cmd = {
     "version": 1,
     "cmd": "scan"

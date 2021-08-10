@@ -1,15 +1,15 @@
 ---
-title: Userguide cfclient GUI
+title: Userguide edclient GUI
 page_id: userguide_client 
 ---
 
 
 
-This page is intended to give an overview on how to use the Crazyflie
+This page is intended to give an overview on how to use the Espdrone
 client, not for installing it. For install instructions go
-[here](https://github.com/bitcraze/crazyflie-clients-python/blob/develop/README.md).
+[here](https://github.com/bitcraze/espdrone-clients-python/blob/develop/README.md).
 
-The Crazyflie client is used for controlling the Crazyflie, flashing
+The Espdrone client is used for controlling the Espdrone, flashing
 firmware, setting parameters and logging data. The main UI is built up
 of a number of tabs, where each tab is used for a specific
 functionality.
@@ -17,30 +17,30 @@ functionality.
 This page uses the terms
 [roll/pitch/yaw](http://en.wikipedia.org/wiki/Flight_dynamics_(fixed_wing_aircraft))
 extensively. For that to make any sense for a quadcopter we need to know
-where the front is ([Crazyflie
-1.0](https://wiki.bitcraze.io/projects:crazyflie:userguide:index#the_crazyflie), [Crazyflie
-2.0](https://wiki.bitcraze.io/projects:crazyflie2:userguide:index)).
+where the front is ([Espdrone
+1.0](https://wiki.bitcraze.io/projects:espdrone:userguide:index#the_espdrone), [Espdrone
+2.0](https://wiki.bitcraze.io/projects:espdrone2:userguide:index)).
 
 How to get flying
 =================
 
 -   Start up the application
 -   Insert the joystick and Crazyradio (PA)
--   Before you connect to the Crazyflie make sure that the joystick is
+-   Before you connect to the Espdrone make sure that the joystick is
     working as expected and that the **thrust is zero**. The joystick
     values should be visible in the flight data box under target.
 -   Press *Scan*
 -   Wait for the scanning to complete
 -   In the drop-down menu to the left of the Connect button select the
-    Crazyflie you want to connect to. Connect to the URI e.g.
+    Espdrone you want to connect to. Connect to the URI e.g.
     radio://0/80/250k.
--   The client will now connect to the Crazyflie and handshake
--   When the handshake is done you can start flying the Crazyflie.
+-   The client will now connect to the Espdrone and handshake
+-   When the handshake is done you can start flying the Espdrone.
     Remember the most tricky part is the thrust so start out easy\...
 
 For more info on LED indicators etc. have a look at the
-[Crazyflie](https://wiki.bitcraze.io/projects:crazyflie:userguide:index#the_crazyflie) or
-[Crazyflie 2.0](https://wiki.bitcraze.io/projects:crazyflie2:userguide:index) user guide.
+[Espdrone](https://wiki.bitcraze.io/projects:espdrone:userguide:index#the_espdrone) or
+[Espdrone 2.0](https://wiki.bitcraze.io/projects:espdrone2:userguide:index) user guide.
 
 Main UI
 =======
@@ -53,10 +53,10 @@ Main UI
 
 
 
-       * *Scan:* Will scan for availible Crazyflies within the chosen address.
+       * *Scan:* Will scan for availible Espdrones within the chosen address.
        * *Connect:* Will connect to the selected URI in the connection list
-       * *Disconnect:* Will disconnect the current Crazyflie
-       * *Address:* The address to scan for. If you didn't change this [in the configuration]( https://wiki.bitcraze.io/doc:crazyflie:client:pycfclient:index#firmware_configuration), then leave the default of 0xE7E7E7E7E7
+       * *Disconnect:* Will disconnect the current Espdrone
+       * *Address:* The address to scan for. If you didn't change this [in the configuration]( https://wiki.bitcraze.io/doc:espdrone:client:pyedclient:index#firmware_configuration), then leave the default of 0xE7E7E7E7E7
        * *Auto Reconnect:* Try to automatically reconnect when connection is lost.
     - Battery and link quality (from 0% to 100%)
     - Tabs with specific functionality (see below for details)
@@ -71,44 +71,44 @@ client.
 Firmware upgrade
 ----------------
 
-For updating the Crazyflie firmware there\'s the possibility to enter
+For updating the Espdrone firmware there\'s the possibility to enter
 bootloader mode and flash [new
 firmware](https://wiki.bitcraze.io/misc:downloads:index) from within the
 client. The bootloader mode is accessed from the menu
-*Crazyflie-\>Bootloader*. If there is any problem during the flashing or
+*Espdrone-\>Bootloader*. If there is any problem during the flashing or
 a wrong firmware is flashed the process can just be started again.
 
-![CFclient bootloading](/images/crazyflie_bootloading.png)
+![CFclient bootloading](/images/espdrone_bootloading.png)
 
-To update the firmware in the Crazyflie 1.0/2.0 do the following:
+To update the firmware in the Espdrone 1.0/2.0 do the following:
 
--   Make sure that the Crazyflie is disconnected from the client and
+-   Make sure that the Espdrone is disconnected from the client and
     powered off
--   Go to the menu *Crazyflie-\>Bootloader*
--   For Crazyflie 2.0 hold the button for about 3 seconds when turning
+-   Go to the menu *Espdrone-\>Bootloader*
+-   For Espdrone 2.0 hold the button for about 3 seconds when turning
     it on until the blue LED M2 starts to blink to get into bootloader
     mode. If a wrong nRF51 firmware has been flashed you might have to
     start from an un-powered state. Then hold the button and connect
     power.
 -   Click \"Initiate bootloader cold boot\"
--   For Crazyflie 1.0 now power it on **within 5 seconds** using the
+-   For Espdrone 1.0 now power it on **within 5 seconds** using the
     battery (not USB), the booloader should now connect
 -   Press \"Browse\" and select the binary you want to download *(e.g.
     cflie.bin)*. **Note:** A \*.bin file will be flashed to the STM32xxx
-    only. Or select a [zip](https://wiki.bitcraze.io/doc:crazyflie:bootloader:index) file
-    containing firmware for both nRF51 and STM32F405 for Crazyflie 2.0
-    as well as firmware for the STM32F103 for the Crazyflie 1.0.
+    only. Or select a [zip](https://wiki.bitcraze.io/doc:espdrone:bootloader:index) file
+    containing firmware for both nRF51 and STM32F405 for Espdrone 2.0
+    as well as firmware for the STM32F103 for the Espdrone 1.0.
 -   Press \"Program\" and wait
 -   Press \"Restart in firmware mode\"
 
 To check the firmware version, under the *View* menu, open up
 *Tabs-\>Console* tab and look at the output when connecting to the
-Crazyflie 1.0/2.0.
+Espdrone 1.0/2.0.
 
 Firmware configuration
 ----------------------
 
-It is possible to set another channel to communicate with the Crazyflie
+It is possible to set another channel to communicate with the Espdrone
 1.0/2.0. It can be wise to do this if there exist other wireless
 networks that can interfere, especially WiFi. It is also possible to
 permanently store the trim values for pitch and roll.
@@ -137,17 +137,17 @@ The procedure is described below and the parameters can be changed again
 any time the same way.
 
 
-|     **Crazyflie 1.0**                                                |                        **Crazyflie 2.0**  |                                                                                                                                
+|     **Espdrone 1.0**                                                |                        **Espdrone 2.0**  |                                                                                                                                
 |-----|------------|  
-|   Click on the menu **\"Crazyflie-\>Configure 1.0\"** and then connect the bootloader by clicking on the \"cold boot\" button and by restarting the Crazyflie.  | First connect to the Crazyflie 2.0 with the normal connect button. Then open **\"Crazyflie-\>Configure 2.0\"** to reach the configure 2.0 dialog   |
- |    ![CF1 config](/images/configure_cf1.png){:width="500"}             |                                                                      ![CF2 config](/images/cfclient_cf2_config.png){:width="500"} |                                                            
-   |  Once the settings has been made press the program button to save them permanently in the Crazyflie flash.              |                                        Once the settings has been made press the write button to save them permanently in the Crazyflie 2.0 EEPROM.    |                                  
+|   Click on the menu **\"Espdrone-\>Configure 1.0\"** and then connect the bootloader by clicking on the \"cold boot\" button and by restarting the Espdrone.  | First connect to the Espdrone 2.0 with the normal connect button. Then open **\"Espdrone-\>Configure 2.0\"** to reach the configure 2.0 dialog   |
+ |    ![CF1 config](/images/configure_cf1.png){:width="500"}             |                                                                      ![CF2 config](/images/edclient_cf2_config.png){:width="500"} |                                                            
+   |  Once the settings has been made press the program button to save them permanently in the Espdrone flash.              |                                        Once the settings has been made press the write button to save them permanently in the Espdrone 2.0 EEPROM.    |                                  
 
 
 Logging
 -------
 
-The Crazyflie logging framework allows to log the state of Crazyflie
+The Espdrone logging framework allows to log the state of Espdrone
 variables in real-time. This subsystem is used by the client to show
 information like pose or battery level.
 
@@ -161,14 +161,14 @@ plotted in the plotter and saved to file in the log block tab.
 To setup a new log block click on the menu \"settings/logging
 configuration\", You then see the following toolbox:
 
-![cfclient logging configuration](/images/client_log-configuration_anotated.png){:align-center}
+![edclient logging configuration](/images/client_log-configuration_anotated.png){:align-center}
 
-1.  List of log variable in the Crazyflie
+1.  List of log variable in the Espdrone
 2.  Log variables in the current log block
-3.  Add the selected Crazyflie log variable in the log block
+3.  Add the selected Espdrone log variable in the log block
 4.  Remove the selected log block variable from the log block
 5.  Period at which the variables are sampled and the block is send by
-    the Crazyflie to the client. The minimum possible period is 10ms
+    the Espdrone to the client. The minimum possible period is 10ms
     (100Hz) and it can be set by step of 10ms up to 2550ms.
 6.  Space taken by the variables in the log block.
 7.  Name of the new or existing log blocks. You can choose an existing
@@ -186,7 +186,7 @@ things such as the max roll/pitch and thrust.
 Input devices
 -------------
 
-In order to control the Crazyflie you are connected to you will need
+In order to control the Espdrone you are connected to you will need
 some input-device. Normally this would be a gamepad, but any
 input-device with at least 4 analog axis will do. Here\'s [a
 list](/inputdevices/) of some input-devices
@@ -204,18 +204,18 @@ but if you have another input-device then it\'s quick to create your own
 configuration. Go to the menu *Input device -\> Configure device
 mapping*.
 
-![cfclient configure device](/images/cfclient_devconfig_select.png){:align-center
+![edclient configure device](/images/edclient_devconfig_select.png){:align-center
 width="700"}
 
 Select the device you would like to configure and press *Configure*.
 
-![cfclient configure device axis](/images/cfclient_devconfig_axis.png){:align-center
+![edclient configure device axis](/images/edclient_devconfig_axis.png){:align-center
 width="700"}
 
 For each functionality that can be mapped there\'s a *Detect* button, by
 pressing it the following dialog will appear.
 
-![cfclient configure device detect](/images/cfclient_devconfig_dialog.png){:align-center
+![edclient configure device detect](/images/edclient_devconfig_dialog.png){:align-center
 width="300"}
 
 Follow the instructions to detect the axis or button that you would like
@@ -227,7 +227,7 @@ Go though all the functionality you would like to map by pressing the
 *Detect* button for each. To be able to save the mapping you will at
 least have to map roll, pitch, yaw and thrust.
 
-![cfclient configure device feedback](/images/cfclient_devconfig_feedback.png){:align-center
+![edclient configure device feedback](/images/edclient_devconfig_feedback.png){:align-center
 width="700"}
 
 Once you have mapped functionality you will be able to see the feedback
@@ -249,12 +249,12 @@ The current input device and mapping can be selected from the *Input
 device* menu.
 
 The *Input device* menu contains a number of different \"modes\" that
-can be used for controlling a Crazyflie. Currently there\'s thee to
+can be used for controlling a Espdrone. Currently there\'s thee to
 choose from. The alternatives will only be enabled if there\'s enough
 input devices connected to use them.
 
 -   *Normal:* Just like it says this is the normal mode using only one
-    controller to control a Crazyflie
+    controller to control a Espdrone
 -   *Teacher (RP):* This mode requires two input-devices, where one will
     be configured for roll and pitch and the other one for the rest of
     the functionality. By using the *Mux switch* functionality (mapped
@@ -270,31 +270,31 @@ For normal usage just enter the *Normal* menu, select the device you
 would like to use and the correct mapping. As a device is selected the
 list of mappings are enabled.
 
-![cfclient devices normal](/images/cfclient_input_normal.png){:align-center
+![edclient devices normal](/images/edclient_input_normal.png){:align-center
 width="700"}
 
 If more than one input device is connected then it\'s possible to switch
 to one of the teacher modes.
 
-![cfclient devices mux select](/images/cfclient_input_mux_select.png){:align-center
+![edclient devices mux select](/images/edclient_input_mux_select.png){:align-center
 width="700"}
 
 First select the device that should be used for the teacher and then
 it\'s mapping.
 
-![cfclient input teacher](/images/cfclient_input_teacher.png){:align-center
+![edclient input teacher](/images/edclient_input_teacher.png){:align-center
 width="700"}
 
 Then select the device that should be used for the student and then
 it\'s mapping.
 
-![cfclient input student](/images/cfclient_input_student.png){:align-center
+![edclient input student](/images/edclient_input_student.png){:align-center
 width="700"}
 
 Once this is done you will be able to see the open devices and
 configurations at the bottom of the user interface.
 
-![cfclient input mux configured](/images/cfclient_input_mux_configured.png){:align-center
+![edclient input mux configured](/images/edclient_input_mux_configured.png){:align-center
 width="700"}
 
 Tabs
@@ -307,7 +307,7 @@ Flightcontrol
 -------------
 
 The normal view used when flying is the one seen below.
-![cfclient flighttab](/images/cfclient_flightab.png){:align-center}
+![edclient flighttab](/images/edclient_flightab.png){:align-center}
 
 1.  Flight mode selector (Normal and Advanced)
 
@@ -316,28 +316,28 @@ The normal view used when flying is the one seen below.
        * *Normal:* Recommended for beginners
        * *Advanced:* Will unlock flight settings in 3
     - Assisted mode selection. The assisted mode is enabled when the assisted mode button is pressed on the Gamepad.
-       * *Altitude hold*: Keeps the Crazyflie at its current altitude automatically. Thrust control becomes height velocity control.
-       * *Position hold*: Keeps the Crazyflie at its current 3D position. Pitch/Roll/Thrust control becomes X/Y/Z velocity control.
-       * *Height hold*: When activated, keeps the Crazyflie at 40cm above the ground. Thrust control becomes height velocity control. Requires a height sensor like the [Z-Ranger deck](https://wiki.bitcraze.io/projects:crazyflie2:expansionboards:zranger).
-    - Roll/pitch trim can be set either in the UI or using the controller (if the correct buttons are mapped). This will offset the input to the Crazyflie for correcting imbalance and reducing drift.
+       * *Altitude hold*: Keeps the Espdrone at its current altitude automatically. Thrust control becomes height velocity control.
+       * *Position hold*: Keeps the Espdrone at its current 3D position. Pitch/Roll/Thrust control becomes X/Y/Z velocity control.
+       * *Height hold*: When activated, keeps the Espdrone at 40cm above the ground. Thrust control becomes height velocity control. Requires a height sensor like the [Z-Ranger deck](https://wiki.bitcraze.io/projects:espdrone2:expansionboards:zranger).
+    - Roll/pitch trim can be set either in the UI or using the controller (if the correct buttons are mapped). This will offset the input to the Espdrone for correcting imbalance and reducing drift.
     - Advanced flight control settings are available if Advanced mode has been selected (settings are in %):
        * *Max angle:* Set the max roll/pitch angle allowed
        * *Max yaw rate:*Set the max yaw rate allowed
        * *Max thrust:* Set the max thrust allowed
-       * *Min thrust:* Minimum thrust before 0 is sent to the Crazyflie
-       * *Slew limit:* Set the percentage where the thrust is slew controlled (the thrust value lowering will be limited). This makes the Crazyflie a bit easier to fly for beginners
+       * *Min thrust:* Minimum thrust before 0 is sent to the Espdrone
+       * *Slew limit:* Set the percentage where the thrust is slew controlled (the thrust value lowering will be limited). This makes the Espdrone a bit easier to fly for beginners
        * *Slew rate:* When the thrust is below the slew limit, this is the maximum rate of lowering the thrust
     - Settings for flight decks, currently the LED-ring effect and headlights can be set (if the ring is attached)
-    - Target values sent from the client for controlling the Crazyflie
-    - Actual values logged from the Crazyflie
-    - Motor output on the Crazyflie
+    - Target values sent from the client for controlling the Espdrone
+    - Actual values logged from the Espdrone
+    - Motor output on the Espdrone
     - Horizon indicator
 
 Plotter
 -------
 
-The plotter tab can be used to visualize data logged from the Crazyflie
-![cfclient plotter](/images/cfclient_ploter.png){:align-center
+The plotter tab can be used to visualize data logged from the Espdrone
+![edclient plotter](/images/edclient_ploter.png){:align-center
 width="700"}
 
 1.  Select logging configuration to plot. Read about how to create
@@ -353,12 +353,12 @@ width="700"}
 Parameters
 ----------
 
-The Crazyflie supports parameters, variables stored in the Crazyflie
+The Espdrone supports parameters, variables stored in the Espdrone
 that can be changed in real-time. The parameter tab can be used to view
 and update parameters. For more information about parameters see
 logging and parameter frameworks LINK TO CF-FIRMWARE!
 
-![cfclient parameter list](/images/cfclient_param.png){:align-center
+![edclient parameter list](/images/edclient_param.png){:align-center
 width="700"}
 
 1.  Parameter information fields
@@ -366,7 +366,7 @@ width="700"}
 
 
        * *Name:* The name of the parameter or group.
-       * *Type:* The C-type of the variable stored in the Crazyflie (you cannot set values outside this)
+       * *Type:* The C-type of the variable stored in the Espdrone (you cannot set values outside this)
        * *Access:* RW parameters can be written from the client while RO parameters can only be read
        * *Value:* The value of the parameter
     - Group: To make things easier each group has it's members organized as sub-nodes to the group
@@ -379,11 +379,11 @@ The log blocks tab shows all log configurations that are saved and if
 they are started. It\'s also possible to start/stop them as well as
 write the logged data to file.
 
-![cfclient log blocks](/images/cfclient_logblocks_marked.png){:align-center
+![edclient log blocks](/images/edclient_logblocks_marked.png){:align-center
 width="700"}
 
 1.  Fields
-    -   *ID:* Block id in Crazyflie
+    -   *ID:* Block id in Espdrone
     -   *Name:* Block name in client
     -   *Period:* The period of which the data is sent back to the
         client
@@ -406,7 +406,7 @@ the writing to file was started (i.e starting/stopping and
 starting/stopping again will yield two files in the same directory). The
 data logged to the file is in CSV format with the headers for the data
 at the top. A timestamp is automatically added for each entry and shows
-the number of milliseconds passed since the Crazyflie started (sent
+the number of milliseconds passed since the Espdrone started (sent
 together with the log data). 
 
 Example data
@@ -424,12 +424,12 @@ of what\'s logged when logging the battery level:
 Console
 -------
 
-The console tab will show printouts from the Crazyflie firmware as it\'s
+The console tab will show printouts from the Espdrone firmware as it\'s
 running.
-![cfclient console](/images/cfclient_console_marked.png){:align-center
+![edclient console](/images/edclient_console_marked.png){:align-center
 width="700"}
 
-1.  Console output from the Crazyflie
+1.  Console output from the Espdrone
 
 Loco Positioning
 ----------------
@@ -452,20 +452,20 @@ LPS positioning mode wirelessly](https://wiki.bitcraze.io/doc:lps:configure-mode
 ### Position estimate mode
 
 Displays the configured anchor positions and the estimated position of
-the Crazyflie. Can be used to make sure the system is set up correctly
+the Espdrone. Can be used to make sure the system is set up correctly
 and that the estimated position is reasonable.
 
-![cfclient positioning](/images/cfclient_position_estimate.png){:align-center
+![edclient positioning](/images/edclient_position_estimate.png){:align-center
 width="700"}
 
-1.  Plot for X/Y (top view) showing anchors and Crazyflie
-2.  Plot for X/Z showing anchors and Crazyflie
-3.  Plot for Y/Z showing anchors and Crazyflie
+1.  Plot for X/Y (top view) showing anchors and Espdrone
+2.  Plot for X/Z showing anchors and Espdrone
+3.  Plot for Y/Z showing anchors and Espdrone
 4.  Sets the graph mode
     -   *Position estimate* - Normal viewing mode
     -   *Anchor identification* - Enhanced mode where anchor id and
-        marker becomes larger when Crazyflie is closer
-5.  Indicates if anchors are communicating with Crazyflie (i.e anchors
+        marker becomes larger when Espdrone is closer
+5.  Indicates if anchors are communicating with Espdrone (i.e anchors
     are up and running)
 6.  Fit and center all data in graphs
 7.  Used to set anchor positions (see below)
@@ -494,20 +494,20 @@ accordingly. There\'s also two buttons used for the settings:
 
 ### Anchor identification mode
 
-displays the configured anchor positions. When the crazyflie is close to
+displays the configured anchor positions. When the espdrone is close to
 an anchor this is indicated in the graphs by highlighting it. This mode
 is useful to identify anchors and verify that the system is correctly
 configured.
-![cfclient anchors](/images/cfclient_anchor_identification.png){:align-center
+![edclient anchors](/images/edclient_anchor_identification.png){:align-center
 width="700"}
 
-1.  Plot for X/Y (top view) showing anchors and Crazyflie
-2.  Plot for X/Z showing anchors and Crazyflie
-3.  Plot for Y/Z showing anchors and Crazyflie
+1.  Plot for X/Y (top view) showing anchors and Espdrone
+2.  Plot for X/Z showing anchors and Espdrone
+3.  Plot for Y/Z showing anchors and Espdrone
 4.  Sets the graph mode
     -   *Position estimate* - Normal viewing mode
     -   *Anchor identification* - Enhanced mode where anchor id and
-        marker becomes larger when Crazyflie is closer
+        marker becomes larger when Espdrone is closer
 5.  Current system mode indication. The system must be in TWR mode for
     the anchor identification mode to be available.
 
@@ -515,18 +515,18 @@ ZMQ backends
 ============
 
 The UI is normally used to get/set parameters, view logged data and send
-control commands to the Crazyflie. Aside from this there\'s also the
+control commands to the Espdrone. Aside from this there\'s also the
 possibility to connect via ZMQ to the client and control several things:
 
--   [Parameters](/cfclient_zmq#parameters):
+-   [Parameters](/edclient_zmq#parameters):
     Get/set parameters by name
--   [LED-ring memory](/cfclient_zmq#led-ring):
+-   [LED-ring memory](/edclient_zmq#led-ring):
     Write LED ring memory
--   [Input-device](/cfclient_zmq#input-device):
+-   [Input-device](/edclient_zmq#input-device):
     Act as an input device
 
 The benefit of using this approach instead of the [stand-alone ZMQ
-server](https://wiki.bitcraze.io/doc:crazyflie:client:cfzmq:index) is that you will not have to
+server](https://wiki.bitcraze.io/doc:espdrone:client:cfzmq:index) is that you will not have to
 take care of everything, just the parts you are interested in for the
 moment. An example is [this video](https://vine.co/v/eZ3jZqxmeZh) where
 the light/sound is controlled via ZMQ though the client, but everything

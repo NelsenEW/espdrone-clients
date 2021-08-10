@@ -1,10 +1,10 @@
 ---
-title: Input-devices for the Crazyflie client
+title: Input-devices for the Espdrone client
 page_id: inputdevices
 ---
 
-The Crazyflie graphical control client needs an input-device (joystick)
-with a minimum of 4 analogue axes to be able to pilot the Crazyflie. The
+The Espdrone graphical control client needs an input-device (joystick)
+with a minimum of 4 analogue axes to be able to pilot the Espdrone. The
 Playstation 3 controller is supported out of the box but the application
 supports creating new configurations that uses other controllers. This
 page details what controllers are supported out of the box, how to
@@ -27,12 +27,12 @@ Steps to get the controller working
 
 Here\'s a few steps that you have to go though in order to get the
 input-device working. If any of the steps are not working then the
-input-device will not be usable for piloting the Crazyflie:
+input-device will not be usable for piloting the Espdrone:
 
 -   The input-device needs to be recognized by the host operating
     system. This means that it should be seen in the operating system
     and be usable in other applications or utilities.
--   When using the Crazyflie graphical control client you need at least
+-   When using the Espdrone graphical control client you need at least
     the correct mappings for roll/pitch/yaw/thrust. This can be checked
     by opening the *Flight Data* tab. If the input-device is found and
     opened then you should see values in the *Target* fields for
@@ -60,8 +60,8 @@ The values are not loaded but the configuration call still be saved.
 This results in a configuration file that will not work and an error
 will be shown when trying to use it. In order to fix this manually
 delete the contents of the user config folder (win:
-*C:\\Users\\your\_user\\AppData\\Roaming\\cfclient*, linux:
-*\~/.config/cfclient*) and create a new configuration from scratch as
+*C:\\Users\\your\_user\\AppData\\Roaming\\edclient*, linux:
+*\~/.config/edclient*) and create a new configuration from scratch as
 described above.
 
 Input device overview

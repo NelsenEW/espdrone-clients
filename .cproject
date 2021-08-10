@@ -36,7 +36,7 @@
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 	</storageModule>
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-		<project id="crazyflie-pc-client-hover.null.1838634307" name="crazyflie-pc-client-hover"/>
+		<project id="espdrone-pc-client-hover.null.1838634307" name="espdrone-pc-client-hover"/>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
 </cproject>

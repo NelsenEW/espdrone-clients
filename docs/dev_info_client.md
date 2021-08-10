@@ -5,8 +5,8 @@ page_id: dev_info_client
 
 
 This page contains generic information about various topics that might
-be interesting while developing for the Crazyflie Python client. The
-same kind of information is available here for the Crazyflie Python API.
+be interesting while developing for the Espdrone Python client. The
+same kind of information is available here for the Espdrone Python API.
 
 Here\'s a quick overview:
 
@@ -29,17 +29,17 @@ Input devices
 The architecture for the input devices in the client strives to give as
 much flexibility as possible and to make cross platform compatibility
 smooth. It combines raw readings from input devices with input device
-mappings to create control values for the Crazyflie and the application.
+mappings to create control values for the Espdrone and the application.
 It\'s also possible to input control values directly.
 
 Below is a walk though of every step of the process, from reading the
-device to sending the control values to the Crazyflie.
+device to sending the control values to the Espdrone.
 
 ### InputDevice
 
 There are two ways to get input into the client: Input readers and input
-interfaces. On startup the modules *lib/cfclient/utils/inputreaders* and
-*lib/cfclient/utils/inputinterfaces* are initialized and these
+interfaces. On startup the modules *lib/edclient/utils/inputreaders* and
+*lib/edclient/utils/inputinterfaces* are initialized and these
 directories are scanned for implementations that can be used. Each
 python file in these directories represent a \"backend\" that handles
 input. Each backend can have zero, one or multiple devices that it can
@@ -71,7 +71,7 @@ The input interfaces don\'t use any mapping, the devices itself directly
 generate useful values (like roll/pitch/yaw/thrust). Currently there\'s
 two implementations: LeapMotion and ZMQ. Values are read the same way as
 from normal gamepads/joysticks, at 100Hz. For more information on how
-the ZMQ interface works read [here](/cfclient_zmq#input-device).
+the ZMQ interface works read [here](/edclient_zmq#input-device).
 
 ### The MUX
 
@@ -129,10 +129,10 @@ configuration file.
   Field                      Format    Comments
   -------------------------- --------- ----------------------------------------------------------------------------------------------------------------------------------------------
   client\_side\_xmode        boolean   Sets weather the client side X-mode is activated or not (more info here)
-  link\_uri                  string    The last successfully connected Crazyflie URI. This is used when you click \"Quick connect\" in the application
+  link\_uri                  string    The last successfully connected Espdrone URI. This is used when you click \"Quick connect\" in the application
   auto\_reconnect            boolean   Set\'s if auto-reconnect is enabled or not
   ui\_update\_period         int       The minimum time (in ms) between UI updates for logging values
-  enable\_debug\_driver      boolean   The Crazyflie API contains a driver for debugging the UI. This driver will act as a Crazyflie and can be used to simulate a number of issues
+  enable\_debug\_driver      boolean   The Espdrone API contains a driver for debugging the UI. This driver will act as a Espdrone and can be used to simulate a number of issues
   open\_tabs                 string    A comma-separated list of the open tabs (using the tab.tabName attribute)
   input\_device              string    The readable name of the last used input device
   device\_config\_mapping    dict      A dictionary where the keys are readable input device names and the values are the last used mapping for the device
@@ -151,7 +151,7 @@ Default configuration file
 --------------------------
 
 The source code contains a default configuration file
-(*/lib/cfclient/configs/config.json*). The file contains two parts: The
+(*/lib/edclient/configs/config.json*). The file contains two parts: The
 default writable part and the default read-only part. When the
 application is started for the first time (and */conf*/ doesn\'t exists)
 the writable part of this configuration file is copied to the
@@ -159,7 +159,7 @@ the writable part of this configuration file is copied to the
 part is used for settings that cannot be changed, but shouldn\'t be
 hardcoded in the code. When the application starts and both the user
 config in */conf/config.json* and the read-only part of
-*/lib/cfclient/configs/config.json* is merged so they can all be
+*/lib/edclient/configs/config.json* is merged so they can all be
 accessed in the application.
 
 ``` {.json}
@@ -201,18 +201,18 @@ accessed in the application.
 TOC cache files
 ---------------
 
-In order to speed up the connection procedure for the Crazyflie the TOCs
+In order to speed up the connection procedure for the Espdrone the TOCs
 are cached ([more info on logging/parameter frameworks and
-TOC](https://www.bitcraze.io/docs/crazyflie-firmware/master/index/) ). The writable part of the TOC
+TOC](https://www.bitcraze.io/docs/espdrone-firmware/master/index/) ). The writable part of the TOC
 cache is located in */conf/cache* where each cache is saved in a file
 named after the CRC32 (in hex) of the TOC CRC32 (for example
 *1CB41680.json*). There\'s also a read-only part of the TOC cache
 that\'s located in */lib/cglib/cache* and contains the caches for
-official builds. When the application connects to a Crazyflie the CRC32
+official builds. When the application connects to a Espdrone the CRC32
 of the log and param TOC is requested. When the client receives it will
 check if a file with the correct name exists (in both the RW and the RO
 TOC cache). If it does it will load the cached TOC, if not it will start
-requesting the TOC from the Crazyflie and when it\'s done it will save
+requesting the TOC from the Espdrone and when it\'s done it will save
 it in the cache.
 
 The TOC cache files are organized in a hierarchical manner after the
@@ -413,7 +413,7 @@ Input device configurations are used to map raw axis (integers) to
 values such as roll/pitch/yaw/thrust (more info above). The
 configurations are stored in */conf/input*, one file for each
 configuration. The default configurations are stored in
-*/lib/cfclient/configs*. The first time the configuration starts up (if
+*/lib/edclient/configs*. The first time the configuration starts up (if
 */conf/input* doesn\'t exist) the default configurations are copied into
 this directory and can then be used.
 
@@ -536,9 +536,9 @@ Log configuration files
 
 The user can configure custom logging configurations from the UI (more
 information on logging/parameter
-frameworks (/doc/crazyflie/dev/arch/logparam) ). These will be saved in
+frameworks (/doc/espdrone/dev/arch/logparam) ). These will be saved in
 the */conf/log* directory, one file for each configuration. Default
-logging configurations are stored in the */lib/cfclient/configs/log* and
+logging configurations are stored in the */lib/edclient/configs/log* and
 are copied into the user configuration directory on the first status (if
 */conf/log* doesn\'t exist).
 
