@@ -6,17 +6,17 @@ SetCompressor /SOLID /FINAL lzma
 !include "MUI2.nsh"
 
 ; The name of the installer
-Name "Crazyflie PC client {{version}}"
+Name "Espdrone PC client {{version}}"
 
 ; The file to write
-OutFile "cfclient-win32-install-{{version}}.exe"
+OutFile "edclient-win32-install-{{version}}.exe"
 
 ; The default installation directory
-InstallDir "$PROGRAMFILES\Crazyflie client"
+InstallDir "$PROGRAMFILES\Espdrone client"
 
 ; Registry key to check for directory (so if you install again, it will
 ; overwrite the old one automatically)
-InstallDirRegKey HKLM "Software\Crazyflie_client" "Install_Dir"
+InstallDirRegKey HKLM "Software\Espdrone_client" "Install_Dir"
 
 ; Request application privileges for Windows Vista
 RequestExecutionLevel admin
@@ -58,7 +58,7 @@ FunctionEnd
 ;--------------------------------
 
 ; The stuff to install
-Section "Crazyflie Client" SecCfclient
+Section "Espdrone Client" SecCfclient
 
   SectionIn RO
 
@@ -76,15 +76,15 @@ Section "Crazyflie Client" SecCfclient
   {% endfor %}
 
   ; Write the installation path into the registry
-  WriteRegStr HKLM SOFTWARE\Crazyflie_client "Install_Dir" "$INSTDIR"
+  WriteRegStr HKLM SOFTWARE\Espdrone_client "Install_Dir" "$INSTDIR"
 
   ;Write Start menu items
-  CreateDirectory "$SMPROGRAMS\Crazyflie client"
-  CreateShortCut "$SMPROGRAMS\Crazyflie client\Uninstall.lnk" "$INSTDIR\uninstall.exe" "" "$INSTDIR\uninstall.exe" 0
-  CreateShortCut "$SMPROGRAMS\Crazyflie client\Crazyflie PC client.lnk" "$INSTDIR\cfclient.exe" "" "$INSTDIR\cfclient.exe" 0
+  CreateDirectory "$SMPROGRAMS\Espdrone client"
+  CreateShortCut "$SMPROGRAMS\Espdrone client\Uninstall.lnk" "$INSTDIR\uninstall.exe" "" "$INSTDIR\uninstall.exe" 0
+  CreateShortCut "$SMPROGRAMS\Espdrone client\Espdrone PC client.lnk" "$INSTDIR\edclient.exe" "" "$INSTDIR\edclient.exe" 0
 
   ; Write the uninstall keys for Windows
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Cfclient" "DisplayName" "Crazyflie Client"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Cfclient" "DisplayName" "Espdrone Client"
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Cfclient" "UninstallString" '"$INSTDIR\uninstall.exe"'
   WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Cfclient" "NoModify" 1
   WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Cfclient" "NoRepair" 1
@@ -101,7 +101,7 @@ SectionEnd
 ;Descriptions
 
   ;Language strings
-  LangString DESC_SecCfclient ${LANG_ENGLISH} "Crazyflie PC Client"
+  LangString DESC_SecCfclient ${LANG_ENGLISH} "Espdrone PC Client"
 
   ;Assign language strings to sections
   !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
@@ -116,7 +116,7 @@ Section "Uninstall"
 
   ; Remove registry keys
   DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Cfclient"
-  DeleteRegKey HKLM SOFTWARE\Crazyflie_client
+  DeleteRegKey HKLM SOFTWARE\Espdrone_client
 
   ; Remove files and uninstaller
   {% for file in files %}
@@ -125,10 +125,10 @@ Section "Uninstall"
   Delete $INSTDIR\uninstall.exe
 
   ; Remove shortcuts, if any
-  Delete "$SMPROGRAMS\Crazyflie client\*.*"
+  Delete "$SMPROGRAMS\Espdrone client\*.*"
 
   ; Remove directories used
-  RMDir "$SMPROGRAMS\Crazyflie client"
+  RMDir "$SMPROGRAMS\Espdrone client"
   {% for dir in dirs|reverse %}
     RMDir "$INSTDIR\{{dir}}"
   {% endfor %}

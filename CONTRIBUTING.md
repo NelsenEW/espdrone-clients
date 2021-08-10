@@ -10,12 +10,12 @@ You can also go to the [bitcraze forum](https://forum.bitcraze.io) and help othe
 ## Reporting issues
 
 When reporting issues the more information you can supply the better.
-Since the client runs on many different OSes, can connect to multiple versions of the Crazyflie and you could use our official releases or clone directly from Git, it can be hard to figure out what's happening.
+Since the client runs on many different OSes, can connect to multiple versions of the Espdrone and you could use our official releases or clone directly from Git, it can be hard to figure out what's happening.
 
  - **Information about the environment:** The best is to C&P the information in the *About->Debug* dialog directly into the issue and supply the following information:
 ```
 Host OS and version of OS:
-Crazyflie/Crazyradio version:
+Espdrone/Crazyradio version:
 Python version:
 ```
  - **How to reproduce the issue:** Step-by-step guide on how the issue can be reproduced (or at least how you reproduce it).

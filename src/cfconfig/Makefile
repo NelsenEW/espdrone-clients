@@ -8,9 +8,9 @@ CONFIGFILE        := cblock.cfg
 BINFILE           := cblock.bin
 
 help:
-	@echo "Crazyflie config block makefile utility"
+	@echo "Espdrone config block makefile utility"
 	@echo
-	@echo "This script permits to read and write the config block of Crazyflie using"
+	@echo "This script permits to read and write the config block of Espdrone using"
 	@echo "openocd and any JTAG probe supported by it. The copter has to be connected"
 	@echo "to the jtag probe"
 	@echo

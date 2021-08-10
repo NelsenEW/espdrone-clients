@@ -1,5 +1,5 @@
 ---
-title: Installing Crazyflie client with macPorts
+title: Installing Espdrone client with macPorts
 page_id: macports 
 ---
 
@@ -18,7 +18,7 @@ Install the command line developer tools:
     xcode-select --install
 
 I found that installing only the command line developer tools is enough
-for Crazyflie client dependencies. However installing Xcode seems to be
+for Espdrone client dependencies. However installing Xcode seems to be
 recommended. I installed the command line developer tools:
 
 ![Xcode 1](/images/image03.png)
@@ -36,7 +36,7 @@ Update already installed ports (none on a fresh installation)
 Mandatory dependencies
 ----------------------
 
-Install Crazyflie client dependencies
+Install Espdrone client dependencies
 
     sudo port install libusb python27 py27-pyusb py27-SDL2 py27-pyqt4
 
@@ -45,19 +45,19 @@ some time. It took about 12 minutes for me, YMMV.
 
 ![bash](/images/image05.png)
 
-Now you are able to clone and run the Crazyflie client!
+Now you are able to clone and run the Espdrone client!
 
     cd Documents
-    git clone https://github.com/bitcraze/crazyflie-clients-python
-    cd crazyflie-clients-python
-    /opt/local/bin/python2.7 bin/cfclient
+    git clone https://github.com/bitcraze/espdrone-clients-python
+    cd espdrone-clients-python
+    /opt/local/bin/python2.7 bin/edclient
 
 ![CF client](/images/image04.png)
 
 Optional dependencies
 ---------------------
 
-If you want to use the plotter tab, to graph in real time Crazyflie log
+If you want to use the plotter tab, to graph in real time Espdrone log
 variables, you need to install pyqtgraph. It installs a lot of
 dependencies and took about 5 minutes (The ports install time varies a
 lot depending on how many ports are pre-compiled):
@@ -68,7 +68,7 @@ lot depending on how many ports are pre-compiled):
 
 You can now access the plotter tab:
 
-    /opt/local/bin/python2.7 bin/cfclient
+    /opt/local/bin/python2.7 bin/edclient
 
 ![plotter tab](/images/image06.png)
 

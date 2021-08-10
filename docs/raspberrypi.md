@@ -17,7 +17,7 @@ We haven\'t removed anything from the image, just added our own stuff.
 So you can still log in and used the Raspberry Pi as you would with the
 Raspbian image, but as an added feature you can also use our stuff. If
 you would like to re-create the SD-image with your own Wheezy image then
-[have a look at what we did](https://wiki.bitcraze.io/projects:crazyflie:pc_utils:raspberrypi).
+[have a look at what we did](https://wiki.bitcraze.io/projects:espdrone:pc_utils:raspberrypi).
 
 The changes made to the SD-card is mostly based of the contributed
 instructions from the [hacks section](https://wiki.bitcraze.io/misc:hacks:rasberrypi).
@@ -59,7 +59,7 @@ SD-image info
     User: pi
     Pass: raspberry
 
-(version before 2015.3 had bitcraze/crazyflie as username/password)
+(version before 2015.3 had bitcraze/espdrone as username/password)
 
 What\'s added to the image
 ==========================
@@ -67,7 +67,7 @@ What\'s added to the image
 There\'s a list of what\'s added:
 
 -   UDEV rules for access to the Crazyradio and NRF bootloader
--   crazyflie-pc-client pre-cloned at latest stable version
+-   espdrone-pc-client pre-cloned at latest stable version
 -   pyusb
 -   UDEV rules to automatically launch the cfheadless client when
     Crazyradio is plugged in
@@ -89,11 +89,11 @@ are using. This is done by editing the two files in the folder /home/pi
 named controller.conf and link.conf. They should only contain one row
 each.
 
-To fly first insert the USB controller, then power on the Crazyflie and
+To fly first insert the USB controller, then power on the Espdrone and
 lastly insert the Crazyradio. This will start the cfheadless client and
-connect to the Crazyflie. In a few seconds you should be ready to fly.
+connect to the Espdrone. In a few seconds you should be ready to fly.
 
-To quit either power off the Crazyflie or pull-out the Crazyradio.
+To quit either power off the Espdrone or pull-out the Crazyradio.
 
 In order to restart flying you have to pull-out the Crazyradio dongle
 and insert it again.
@@ -102,11 +102,11 @@ Troubleshooting
 ===============
 
 Try to pull-out and insert the Crazyradio. Then wait up to 10 seconds
-before you try to control the Crazyflie.
+before you try to control the Espdrone.
 
 If you see the LED on the Crazyradio blinking green, then it\'s
 connected. If it\'s blinking red it means that it cannot connect to the
-Crazyflie.
+Espdrone.
 
 Check logfile /tmp/cfheadless.log for messages
 

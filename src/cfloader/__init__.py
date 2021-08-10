@@ -9,7 +9,7 @@
 #
 #  Copyright (C) 2011-2013 Bitcraze AB
 #
-#  Crazyflie Nano Quadcopter Client
+#  Espdrone Nano Quadcopter Client
 #
 #  This program is free software; you can redistribute it and/or
 #  modify it under the terms of the GNU General Public License
@@ -31,17 +31,17 @@
 
 import sys
 
-import cflib.crtp
-from cflib.bootloader import Bootloader
-from cflib.bootloader.boottypes import BootVersion, TargetTypes
+import edlib.crtp
+from edlib.bootloader import Bootloader
+from edlib.bootloader.boottypes import BootVersion, TargetTypes
 
 
 def main():
     # Initialise the CRTP link driver
     link = None
     try:
-        cflib.crtp.init_drivers()
-        link = cflib.crtp.get_link_driver("radio://")
+        edlib.crtp.init_drivers()
+        link = edlib.crtp.get_link_driver("radio://")
     except Exception as e:
         print("Error: {}".format(str(e)))
         if link:
@@ -143,7 +143,7 @@ def main():
                 bl.close()
                 sys.exit(-1)
         else:  # The connection is done by a cold boot ...
-            print("Restart the Crazyflie you want to bootload in the next"),
+            print("Restart the Espdrone you want to bootload in the next"),
             print(" 10 seconds ..."),
 
             sys.stdout.flush()
