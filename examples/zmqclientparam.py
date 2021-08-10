@@ -9,7 +9,7 @@
 #
 #  Copyright (C) 2015 Bitcraze AB
 #
-#  Crazyflie Nano Quadcopter Client
+#  Espdrone Nano Quadcopter Client
 #
 #  This program is free software; you can redistribute it and/or
 #  modify it under the terms of the GNU General Public License
@@ -25,7 +25,7 @@
 #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301,
 #  USA.
 """
-Test script to show how to use the ZMQ param backend for the Crazyflie
+Test script to show how to use the ZMQ param backend for the Espdrone
 Python Client. The backend is started automatically in the client if ZMQ
 is available.
 

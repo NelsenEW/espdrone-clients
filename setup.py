@@ -22,7 +22,7 @@ if sys.argv[1] == 'build':
                           'packages': ['asyncio'],
                           'excludes': ['tkinter']}
         },
-        'executables': [Executable("bin/cfclient", icon='bitcraze.ico')],
+        'executables': [Executable("bin/edclient", icon='bitcraze.ico')],
     }
 else:
     cxfreeze_options = {}
@@ -61,17 +61,17 @@ def relative(lst, base=''):
 
 VERSION = get_version()
 
-if not VERSION and not os.path.isfile('src/cfclient/version.json'):
+if not VERSION and not os.path.isfile('src/edclient/version.json'):
     sys.stderr.write("Git is required to install from source.\n" +
                      "Please clone the project with Git or use one of the\n" +
                      "release pachages (either from pip or a binary build).\n")
     raise Exception("Git required.")
 
 if not VERSION:
-    versionfile = open('src/cfclient/version.json', 'r', encoding='utf8')
+    versionfile = open('src/edclient/version.json', 'r', encoding='utf8')
     VERSION = json.loads(versionfile.read())['version']
 else:
-    with codecs.open('src/cfclient/version.json', 'w', encoding='utf8') as f:
+    with codecs.open('src/edclient/version.json', 'w', encoding='utf8') as f:
         f.write(json.dumps({'version': VERSION}))
 
 platform_requires = []
@@ -82,25 +82,25 @@ if sys.platform == 'win32':
     platform_dev_requires = ['cx_freeze', 'jinja2']
 
 package_data = {
-    'cfclient.ui':  relative(glob('src/cfclient/ui/*.ui')),
-    'cfclient.ui.tabs': relative(glob('src/cfclient/ui/tabs/*.ui')),
-    'cfclient.ui.widgets':  relative(glob('src/cfclient/ui/widgets/*.ui')),
-    'cfclient.ui.toolboxes':  relative(glob('src/cfclient/ui/toolboxes/*.ui')),  # noqa
-    'cfclient.ui.dialogs':  relative(glob('src/cfclient/ui/dialogs/*.ui')),
-    'cfclient':  relative(glob('src/cfclient/configs/*.json'), 'configs/') +  # noqa
-                 relative(glob('src/cfclient/configs/input/*.json'), 'configs/input/') +  # noqa
-                 relative(glob('src/cfclient/configs/log/*.json'), 'configs/log/') +  # noqa
-                 relative(glob('src/cfclient/resources/*'), 'resources/') +
-                 relative(glob('src/cfclient/*.png')),
+    'edclient.ui':  relative(glob('src/edclient/ui/*.ui')),
+    'edclient.ui.tabs': relative(glob('src/edclient/ui/tabs/*.ui')),
+    'edclient.ui.widgets':  relative(glob('src/edclient/ui/widgets/*.ui')),
+    'edclient.ui.toolboxes':  relative(glob('src/edclient/ui/toolboxes/*.ui')),  # noqa
+    'edclient.ui.dialogs':  relative(glob('src/edclient/ui/dialogs/*.ui')),
+    'edclient':  relative(glob('src/edclient/configs/*.json'), 'configs/') +  # noqa
+                 relative(glob('src/edclient/configs/input/*.json'), 'configs/input/') +  # noqa
+                 relative(glob('src/edclient/configs/log/*.json'), 'configs/log/') +  # noqa
+                 relative(glob('src/edclient/resources/*'), 'resources/') +
+                 relative(glob('src/edclient/*.png')),
     '': ['README.md']
 }
 data_files = [
-    ('third_party', glob('src/cfclient/third_party/*')),
+    ('third_party', glob('src/edclient/third_party/*')),
 ]
 
 # Initial parameters
 setup(
-    name='cfclient',
+    name='edclient',
     description='Bitcraze Cazyflie quadcopter client',
     version=VERSION,
     author='Bitcraze team',
@@ -113,15 +113,15 @@ setup(
         'Programming Language :: Python :: 3.5',
     ],
 
-    keywords='quadcopter crazyflie',
+    keywords='quadcopter espdrone',
 
     package_dir={'': 'src'},
     packages=find_packages('src'),
 
     entry_points={
         'console_scripts': [
-            'cfclient=cfclient.gui:main',
-            'cfheadless=cfclient.headless:main',
+            'edclient=edclient.gui:main',
+            'cfheadless=edclient.headless:main',
             'cfloader=cfloader:main',
             'cfzmq=cfzmq:main'
         ],

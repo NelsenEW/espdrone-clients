@@ -13,7 +13,7 @@
   subs:
     - {page_id: cfloader}
     - {page_id: bootloaderclient}
-    - {page_id: cfclient_zmq}
+    - {page_id: edclient_zmq}
 - title: Development instructions
   subs:
     - {page_id: dev_info_client}

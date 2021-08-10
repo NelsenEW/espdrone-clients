@@ -1,10 +1,10 @@
 ---
-title: ZMQ implementation of the cfclient
-page_id: cfclient_zmq
+title: ZMQ implementation of the edclient
+page_id: edclient_zmq
 ---
 
 
-The [Crazyflie Python client](/userguide_client/)
+The [Espdrone Python client](/userguide_client/)
 runs a number of back-ends where you can set/get information from other
 applications via [ZMQ](http://zeromq.org/).
 
@@ -20,7 +20,7 @@ Parameters
 ==========
 
 The parameter back-end gives access to setting parameters in the
-Crazyflie. The back-end is enabled by default.
+Espdrone. The back-end is enabled by default.
 
 Protocol
 --------
@@ -87,8 +87,8 @@ Input device
 
 If you don\'t want to use the API and you don\'t want to bother about
 scanning/connecting/logging/etc or there\'s no API for the environment
-you use, there\'s an easy way to control the Crazyflie. Just like you
-would control the Crazyflie with a gamepad or joystick connected to a
+you use, there\'s an easy way to control the Espdrone. Just like you
+would control the Espdrone with a gamepad or joystick connected to a
 computer, you can use ZMQ to inject control set-points directly into the
 client. You still use the client for connecting/logging/graphing/setting
 parameters, it\'s just the control part that\'s broken out.
@@ -119,7 +119,7 @@ Available keys for the *ctrl* dictionary:
 |  pitch |   N/A    | degrees     |     
 |  yaw   |   N/A    | degrees/second |  
 |  thrust |  0-100  | Percent  |        
-|  estop  |  T/F    | boolean  |        Used to stop the Crazyflie and disable the control
+|  estop  |  T/F    | boolean  |        Used to stop the Espdrone and disable the control
 |  alt1  |   T/F    | boolean  |        Alt1 is internally mapped to functionality like switching LED-ring effect
 |  alt2   |  T/F    | boolean |         Alt2 is internally mapped to functionality like switching LED-ring headlights on/off
 

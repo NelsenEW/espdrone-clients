@@ -1,6 +1,6 @@
 [console_scripts]
-cfclient = cfclient.gui:main
-cfheadless = cfclient.headless:main
+edclient = edclient.gui:main
+cfheadless = edclient.headless:main
 cfloader = cfloader:main
 cfzmq = cfzmq:main
 

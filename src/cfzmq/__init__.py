@@ -8,7 +8,7 @@
 #
 #  Copyright (C) 2015 Bitcraze AB
 #
-#  Crazyflie Nano Quadcopter Client
+#  Espdrone Nano Quadcopter Client
 #
 #  This program is free software; you can redistribute it and/or
 #  modify it under the terms of the GNU General Public License
@@ -26,7 +26,7 @@
 #  MA  02110-1301, USA.
 
 """
-Server used to connect to a Crazyflie using ZMQ.
+Server used to connect to a Espdrone using ZMQ.
 """
 
 import sys
@@ -36,11 +36,11 @@ import signal
 import zmq
 import queue
 from threading import Thread
-import cflib.crtp
-from cflib.crazyflie import Crazyflie
-from cflib.crazyflie.log import LogConfig
+import edlib.crtp
+from edlib.espdrone import Espdrone
+from edlib.espdrone.log import LogConfig
 
-import cfclient
+import edclient
 
 if os.name == 'posix':
     print('Disabling standard output for libraries!')
@@ -60,7 +60,7 @@ ZMQ_LOG_PORT = 2001
 ZMQ_PARAM_PORT = 2002
 # Async event for connection, like connection lost (publish)
 ZMQ_CONN_PORT = 2003
-# Control set-poins for Crazyflie (pull)
+# Control set-poins for Espdrone (pull)
 ZMQ_CTRL_PORT = 2004
 
 # Timeout before giving up when verifying param write
@@ -147,7 +147,7 @@ class _SrvThread(Thread):
 
     def _handle_scanning(self):
         resp = {"version": 1}
-        interfaces = cflib.crtp.scan_interfaces()
+        interfaces = edlib.crtp.scan_interfaces()
         resp["interfaces"] = []
         for i in interfaces:
             resp["interfaces"].append({"uri": i[0], "info": i[1]})
@@ -315,13 +315,13 @@ class _CtrlThread(Thread):
 
 
 class ZMQServer():
-    """Crazyflie ZMQ server"""
+    """Espdrone ZMQ server"""
 
     def __init__(self, base_url):
         """Start threads and bind ports"""
-        cflib.crtp.init_drivers(enable_debug_driver=True)
-        self._cf = Crazyflie(ro_cache=None,
-                             rw_cache=cfclient.config_path + "/cache")
+        edlib.crtp.init_drivers(enable_debug_driver=True)
+        self._cf = Espdrone(ro_cache=None,
+                             rw_cache=edclient.config_path + "/cache")
 
         signal.signal(signal.SIGINT, signal.SIG_DFL)
 
@@ -351,7 +351,7 @@ class ZMQServer():
 
 
 def main():
-    """Main Crazyflie ZMQ application"""
+    """Main Espdrone ZMQ application"""
     import argparse
 
     parser = argparse.ArgumentParser(prog="cfzmq")

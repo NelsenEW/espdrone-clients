@@ -1,4 +1,4 @@
-Crazyflie Python client/API
+Espdrone Python client/API
 ===========================
 
 Checks
@@ -20,15 +20,15 @@ Checks
          - One input devices
          - Multiple input devices
          - Map device from scratch and by loading previous configuration
-     - Scan and connect to Crazyflie via Crazyradio
-     - Scan and connect to Crazyflie via USB
+     - Scan and connect to Espdrone via Crazyradio
+     - Scan and connect to Espdrone via USB
      - Negative tests such as
-         - Disconnect Crazyflie via USB when connected
+         - Disconnect Espdrone via USB when connected
          - Disconnect Crazyradio when connected
      - Showing the Debug tab in the About dialog
- - Verify that it's possible to change the Crazyflie configuration block
+ - Verify that it's possible to change the Espdrone configuration block
  - Verify bootloading, both from UI and cfload
- - Verify that it's possible to connect to a Crazyflie and control it
+ - Verify that it's possible to connect to a Espdrone and control it
 
 Preparations
 ------------
@@ -44,4 +44,4 @@ Build distribution
 
 Distribute
 ----------
- 1. Upload the release from ```dist/cfclient-*``` to Github release for this tag
+ 1. Upload the release from ```dist/edclient-*``` to Github release for this tag
