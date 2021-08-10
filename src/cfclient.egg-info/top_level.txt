@@ -1,3 +1,0 @@
-edclient
-cfloader
-cfzmq

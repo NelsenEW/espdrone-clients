@@ -1,6 +1,7 @@
+Forked from [espdrone-clients-python (esp-drone branch)](https://github.com/leeebo/espdrone-clients-python/tree/esp-drone)
+
 ## edclient: Espdrone Clients
 
-Forked from [espdrone-clients-python (esp-drone branch)](https://github.com/leeebo/espdrone-clients-python/tree/esp-drone)
 
 The ESP-Drone PC client enables flashing and controlling the esp drone with espdrone clients backend.
 It implements the user interface and high-level control (for example gamepad handling).
@@ -50,31 +51,6 @@ You can now run the clients with the following commands:
 edclient
 ```
 
-## Mac OSX
-
-### Using homebrew
-**IMPORTANT NOTE**: The following will use
-[Homebrew](http://brew.sh/) and its own Python distribution. If
-you have a lot of other 3rd party python stuff already running on your system
-they might or might not be affected by this.
-
-1. Install homebrew
-
-    See [the Homebrew site](https://brew.sh/)
-
-1. Install the brew bottles needed
-    ```
-    brew install python3 sdl sdl2 sdl_image sdl_mixer sdl_ttf libusb portmidi
-    ```
-
-1. Install the client
-
-    pip3 install -e .
-
-1. You now have all the dependencies needed to run the client. The client can now be started from any location by:
-    ```
-    edclient
-    ```
 
 ## Linux
 
@@ -103,5 +79,7 @@ The edclient have several limitations that have not been developed yet. Here are
 - The edclient is unable to connect after the first connection. You have to restart the edclient and connect again.
 
 - The camera streaming is not implemented in the edclient. To see the camera stream, go to your browser and type `[YOUR DRONE's IP]/stream.jpg` (eg. 192.168.0.100/stream.jpg) on the address bar 
+
+- We have tested on 2 different Mac devices, and ran into problems.
 
 

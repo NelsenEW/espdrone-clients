@@ -1,4 +1,4 @@
-Metadata-Version: 1.1
+Metadata-Version: 2.1
 Name: edclient
 Version: 2019.09-4-gd879323
 Summary: Bitcraze Cazyflie quadcopter client
@@ -6,9 +6,12 @@ Home-page: http://www.bitcraze.io
 Author: Bitcraze team
 Author-email: contact@bitcraze.se
 License: UNKNOWN
-Description: UNKNOWN
 Keywords: quadcopter espdrone
 Platform: UNKNOWN
 Classifier: License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)
 Classifier: Programming Language :: Python :: 3.4
 Classifier: Programming Language :: Python :: 3.5
+License-File: LICENSE.txt
+
+UNKNOWN
+
