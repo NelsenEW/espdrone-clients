@@ -3,7 +3,7 @@ Forked from [espdrone-clients-python (esp-drone branch)](https://github.com/leee
 ## edclient: Espdrone Clients
 
 
-The ESP-Drone PC client enables flashing and controlling the esp drone with espdrone clients backend.
+The ESP-Drone PC client enables interfacing with the esp drone with espdrone clients backend.
 It implements the user interface and high-level control (for example gamepad handling).
 The communication with espdrone and the implementation of the CRTP protocol to control the espdrone is handled by the [edlib](https://github.com/NelsenEW/espdrone-lib-python) project.
 
