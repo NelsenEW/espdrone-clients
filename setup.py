@@ -59,7 +59,7 @@ def relative(lst, base=''):
     return list(map(lambda x: base + os.path.basename(x), lst))
 
 
-VERSION = get_version()
+VERSION = "1.0.0"
 
 if not VERSION and not os.path.isfile('src/edclient/version.json'):
     sys.stderr.write("Git is required to install from source.\n" +

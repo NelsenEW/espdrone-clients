@@ -14,11 +14,10 @@ For more info see our [wiki](http://wiki.bitcraze.se/ "Bitcraze Wiki").
 The Espdrone PC client has the following dependencies:
 
 * Installed from system packages
-  * Python 3.6
-  * PyQt5 == "5.13.2"
-  * A pyusb backend: libusb 0.X/1.X
+  * **Python 3.6**
+  * **PyQt5 == "5.13.2"**
+  * **A pyusb backend: libusb 0.X/1.X**
 * Installed from PyPI using PIP:
-  * edlib
   * PyUSB
   * PyQtGraph
   * ZMQ
@@ -51,6 +50,33 @@ You can now run the clients with the following commands:
 edclient
 ```
 
+## Mac OSX
+
+### Using homebrew
+**IMPORTANT NOTE**: The following will use
+[Homebrew](http://brew.sh/) and its own Python distribution. If
+you have a lot of other 3rd party python stuff already running on your system
+they might or might not be affected by this.
+
+1. Install homebrew
+
+    See [the Homebrew site](https://brew.sh/)
+
+2. Install the brew bottles needed
+    ```
+    brew install python3 sdl sdl2 sdl_image sdl_mixer sdl_ttf libusb portmidi pyqt5 == "5.13.2"
+    ```
+
+3. Install the client
+
+    ```
+    pip3 install -e .
+    ```
+
+4. You now have all the dependencies needed to run the client. The client can now be started from any location by:
+    ```
+    edclient
+    ```
 
 ## Linux
 
@@ -76,10 +102,6 @@ To launch the GUI after a systemwide installation, execute ```edclient``` or ```
 ## Known Limitations
 The edclient have several limitations that have not been developed yet. Here are some list of known issues/limitations:
 
-- The edclient is unable to connect after the first connection. You have to restart the edclient and connect again.
-
 - The camera streaming is not implemented in the edclient. To see the camera stream, go to your browser and type `[YOUR DRONE's IP]/stream.jpg` (eg. 192.168.0.100/stream.jpg) on the address bar 
 
-- We have tested on 2 different Mac devices, and ran into problems.
-
-
+- Not fully tested on Mac OS.
