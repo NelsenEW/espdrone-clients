@@ -69,7 +69,7 @@ __all__ = ['MainUI']
 
 logger = logging.getLogger(__name__)
 
-INTERFACE_PROMPT_TEXT = 'Select an interface'
+INTERFACE_PROMPT_TEXT = 'No drones available'
 
 (main_window_class,
  main_windows_base_class) = (uic.loadUiType(edclient.module_path +
@@ -237,7 +237,6 @@ class MainUI(QtWidgets.QMainWindow, main_window_class):
         self._menuItem_openconfigfolder.triggered.connect(
             self._open_config_folder)
 
-        self.address.setValue("192.168.43.42")
 
         self._auto_reconnect_enabled = Config().get("auto_reconnect")
         self.autoReconnectCheckBox.toggled.connect(
@@ -415,23 +414,19 @@ class MainUI(QtWidgets.QMainWindow, main_window_class):
         selected_interface = self._selected_interface
 
         self.interfaceCombo.clear()
-        self.interfaceCombo.addItem(INTERFACE_PROMPT_TEXT)
 
-        formatted_interfaces = []
-        for i in interfaces:
-            if len(i[1]) > 0:
-                interface = "%s - %s" % (i[0], i[1])
-            else:
-                interface = i[0]
-            formatted_interfaces.append(interface)
-        self.interfaceCombo.addItems(formatted_interfaces)
-
+        if interfaces:        
+            for interface in interfaces:
+                self.interfaceCombo.addItems(interface)
+        else:
+            self.interfaceCombo.addItem(INTERFACE_PROMPT_TEXT)
+        
         if self._initial_scan:
             self._initial_scan = False
 
             try:
                 if len(Config().get("link_uri")) > 0:
-                    formatted_interfaces.index(Config().get("link_uri"))
+                    interfaces.index(Config().get("link_uri"))
                     selected_interface = Config().get("link_uri")
             except KeyError:
                 #  The configuration for link_uri was not found
@@ -446,7 +441,7 @@ class MainUI(QtWidgets.QMainWindow, main_window_class):
         newIndex = 0
         if selected_interface is not None:
             try:
-                newIndex = formatted_interfaces.index(selected_interface) + 1
+                newIndex = interfaces.index(selected_interface) + 1
             except ValueError:
                 pass
 

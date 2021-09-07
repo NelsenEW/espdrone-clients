@@ -198,7 +198,7 @@
           </widget>
          </item>
          <item>
-          <widget class="HexSpinBox" name="address">
+          <widget class="IpSpinBox" name="address">
            <property name="minimumSize">
             <size>
              <width>140</width>
@@ -503,9 +503,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>HexSpinBox</class>
+   <class>IpSpinBox</class>
    <extends>QSpinBox</extends>
-   <header>edclient.ui.widgets.hexspinbox</header>
+   <header>edclient.ui.widgets.ipspinbox</header>
   </customwidget>
  </customwidgets>
  <resources/>
