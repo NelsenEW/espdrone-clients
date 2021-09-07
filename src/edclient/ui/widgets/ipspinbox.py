@@ -26,24 +26,24 @@
 #  51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 """
-This class provides a spin box with hexadecimal numbers and arbitrarily length
-(i.e. not limited by 32 bit).
+This class provides a spin box with IP address
 """
 
 from PyQt5 import QtGui, QtCore
 from PyQt5.QtWidgets import QAbstractSpinBox
+from ipaddress import IPv4Address, AddressValueError
 
-__author__ = 'Bitcraze AB'
-__all__ = ['HexSpinBox']
+__author__ = "Bitcraze AB"
+__all__ = ["IpSpinBox"]
 
+DEFAULT_ADDR = "192.168.43.42"
 
-class HexSpinBox(QAbstractSpinBox):
-
+class IpSpinBox(QAbstractSpinBox):
     def __init__(self, *args):
         QAbstractSpinBox.__init__(self, *args)
-        regexp = QtCore.QRegExp('^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$')
+        regexp = QtCore.QRegExp("^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$")
         self.validator = QtGui.QRegExpValidator(regexp)
-        self._value = 0
+        self._value = None
 
     def validate(self, text, pos):
         return self.validator.validate(text, pos)
@@ -51,20 +51,24 @@ class HexSpinBox(QAbstractSpinBox):
     def textFromValue(self, value):
         return str(value)
 
-    def valueFromText(self, text):
-        return text
-
     def setValue(self, value):
-        self._value = value
+        self._value = IPv4Address(value)
         self.lineEdit().setText(self.textFromValue(value))
 
     def value(self):
-        self._value = self.valueFromText(self.lineEdit().text())
-        return self._value
+        try:
+            self._value = IPv4Address(self.lineEdit().text())
+            return str(self._value)
+        except AddressValueError:
+            if self.lineEdit().text():
+                return str(-1)
+            return None
+        
 
     def stepBy(self, steps):
+        if self._value is None:
+            self._value = IPv4Address(DEFAULT_ADDR)
         self.setValue(self._value + steps)
 
     def stepEnabled(self):
-        return (QAbstractSpinBox.StepUpEnabled |
-                QAbstractSpinBox.StepDownEnabled)
+        return QAbstractSpinBox.StepUpEnabled | QAbstractSpinBox.StepDownEnabled

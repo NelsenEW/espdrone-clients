@@ -167,7 +167,7 @@
            </widget>
           </item>
           <item row="7" column="1">
-           <widget class="HexSpinBox" name="_radio_address">
+           <widget class="IpSpinBox" name="_radio_address">
            </widget>
           </item>
          </layout>
@@ -181,9 +181,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>HexSpinBox</class>
+   <class>IpSpinBox</class>
    <extends>QSpinBox</extends>
-   <header>edclient.ui.widgets.hexspinbox</header>
+   <header>edclient.ui.widgets.ipspinbox</header>
   </customwidget>
  </customwidgets>
  <resources/>
